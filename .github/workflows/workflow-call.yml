@@ -5,6 +5,7 @@ on:
       message:
         required: true
         type: string
+        default: "check it is working or not"
      
 
 jobs:
