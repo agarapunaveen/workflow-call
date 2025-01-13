@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: owner/repository/.github/workflows/reusable-workflow.yml@main
+    uses: agarapunaveen/reusable-workflow/.github/workflows/reusable-workflow.yml@main
     with:
       name: "My Application"
       environment: "production"
