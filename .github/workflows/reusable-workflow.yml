@@ -1,0 +1,14 @@
+name: Call Reusable Workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-reusable-workflow:
+    uses: owner/repository/.github/workflows/reusable-workflow.yml@main
+    with:
+      name: "My Application"
+      environment: "production"
+    secrets:
+      api_key: ${{ secrets.PRODUCTION_API_KEY }}
