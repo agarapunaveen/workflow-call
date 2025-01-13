@@ -2,23 +2,14 @@ name: Reusable Workflow Example
 on:
   workflow_call:
     inputs:
-      name:
+      message:
         required: true
         type: string
-      environment:
-        required: true
-        type: choice
-        options:
-          - staging
-          - production
-        default: staging
-    secrets:
-      api_key:
-        required: true
+     
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Display Input
-        run: echo "Deploying to ${{ inputs.environment }} environment for ${{ inputs.name }}"
+        run: echo "Deploying to ${{ inputs.message }}"
