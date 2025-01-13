@@ -8,7 +8,4 @@ jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/workflow-call.yml
     with:
-      name: "My Application"
-      environment: "production"
-    secrets:
-      api_key: ${{ secrets.PRODUCTION_API_KEY }}
+     message: "Hello Welcome"
