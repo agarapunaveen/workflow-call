@@ -1,0 +1,32 @@
+# .github/workflows/reusable-workflow.yml
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      app_name:
+        description: "Name of the application"
+        required: true
+        type: string
+      deploy_env:
+        description: "Deployment environment (staging/production)"
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+        default: staging
+    secrets:
+      api_token:
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      deployment_status: ${{ steps.deploy_app.outputs.status }}
+    steps:
+      - id: deploy_app
+        run: |
+          echo "Deploying ${{ inputs.app_name }} to ${{ inputs.deploy_env }}"
+          echo "status=success" 
